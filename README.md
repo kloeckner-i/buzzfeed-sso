@@ -1,7 +1,5 @@
 # Buzzfeed SSO
 
-[![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/minddocdev)](https://artifacthub.io/packages/search?repo=minddocdev)
-
 Single sign-on for your Kubernetes services using Google OAuth (more providers are welcomed)
 
 - [Blogpost](https://tech.buzzfeed.com/unleashing-the-a6a1a5da39d6?gi=e6db395406ae)
@@ -12,8 +10,6 @@ Single sign-on for your Kubernetes services using Google OAuth (more providers a
 This helm chart is heavily inspired in [Buzzfeed's example](https://github.com/buzzfeed/sso/tree/master/quickstart/kubernetes), and provides a way of protecting Kubernetes services that have no authentication layer globally from a single OAuth proxy.
 
 Many of the Kubernetes OAuth solutions require to run an extra container within the pod using [oauth2_proxy](https://github.com/bitly/oauth2_proxy), but the project seems to not be maintained anymore. The approach presented on this chart allows to have a global OAuth2 Proxy that can protect services even in different namespaces, thanks to [Kube DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/).
-
-We use this chart in production at [MindDoc](https://minddoc.de) for protecting endpoints that have no built-in authentication (or that would require to run inner containers), like `Kibana`, `Prometheus`, etc...
 
 ## Introduction
 
@@ -30,8 +26,8 @@ cluster using the [Helm](https://helm.sh) package manager.
 To install the chart with the release name `my-release`:
 
 ```bash
-helm repo add minddoc https://minddocdev.github.io/charts
-helm install --name my-release minddoc/buzzfeed-sso
+helm repo add kci-buzzfeed-sso https://kloeckner-i.github.io/buzzfeed-sso/
+helm install --name my-release kci-buzzfeed-sso/buzzfeed-sso
 ```
 
 The command deploys SSO on the Kubernetes cluster using the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -199,7 +195,7 @@ helm upgrade -f values.yaml my-release minddoc/buzzfeed-sso
 
 ## Contributors
 
-This is the list of contributors to the original [incubator/buzfeed-sso](https://github.com/helm/charts/tree/master/incubator/buzzfeed-sso) chart:
+This is the list of contributors to the original [incubator/buzfeed-sso](https://github.com/helm/charts/tree/master/incubator/buzzfeed-sso) chart and the first fork [minddocdev/buzzfeed-sso](https://github.com/minddocdev/buzzfeed-sso):
 
 - @anas-aso
 - @cameronattard
@@ -212,5 +208,6 @@ This is the list of contributors to the original [incubator/buzfeed-sso](https:/
 - @StiviiK
 - @tuanahnguyen-ct
 - @willejs
+
 
 New contributors are always welcomed!
