@@ -3,7 +3,7 @@ name: Release Charts
 on:
   push:
     branches:
-      - METAL-2935/forking_and_github_actions
+      - main
 
 jobs:
   release:
