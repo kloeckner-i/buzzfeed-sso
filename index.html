@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    code {
+      color: rgba(0, 255, 34);
+      background: #000;
+      font-size: 1.2em;
+      display: block;
+      white-space: pre-wrap;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    footer {
+      font-size: 0.8em;
+    }
+  </style>
+</head>
+<body>
+  <h1>helm chart repo for buzzfeed-sso</h1>
+  <code>
+    helm repo add kci-buzzfeed-sso https://kloeckner-i.github.io/buzzfeed-sso/
+    helm install --name my-release kci-buzzfeed-sso/buzzfeed-sso
+  </code>
+  <p>
+    Please visit our github project page for more information:
+    <a href="https://github.com/kloeckner-i/buzzfeed-sso">github buzzfeed-sso</a>
+  </p>
+  <hr />
+  <footer>
+    created by kloeckner.i gmbh wiht the power of github pages.
+  </footer>
+</body>
