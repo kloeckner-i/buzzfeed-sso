@@ -34,6 +34,9 @@ spec:
       secretName: {{ .secretName }}
   {{- end }}
 {{- end }}
+{{- if .Values.ingress.ingressClassname }}
+  ingressClassname: {{ .Values.ingress.ingressClassname }}
+{{- end }}
   rules:
     # Upstreams that need SSO authentication
   {{- range .Values.ingress.hosts }}
