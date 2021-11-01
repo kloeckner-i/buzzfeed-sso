@@ -3,6 +3,28 @@ entries:
   buzzfeed-sso:
   - apiVersion: v1
     appVersion: 3.0.0
+    created: "2021-11-01T12:18:15.024541284Z"
+    description: Single sign-on for your Kubernetes services using Google OAuth
+    digest: 168d82ff77036a3ea7465feb0143502125e03cc77adb9d1ee5dc1f15f9fc8f7b
+    home: https://github.com/buzzfeed/sso
+    icon: https://user-images.githubusercontent.com/10510566/44476420-a64e5980-a605-11e8-8ad9-2820109deb75.png
+    keywords:
+    - sso
+    - octoboi
+    - ssoctopus
+    maintainers:
+    - email: dblanco@minddoc.de
+      name: darioblanco
+    - email: alen.komljen@live.com
+      name: komljen
+    name: buzzfeed-sso
+    sources:
+    - https://hub.docker.com/r/buzzfeed/sso/
+    urls:
+    - https://github.com/kloeckner-i/buzzfeed-sso/releases/download/buzzfeed-sso-0.4.0/buzzfeed-sso-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v1
+    appVersion: 3.0.0
     created: "2021-10-27T11:36:11.661886942Z"
     description: Single sign-on for your Kubernetes services using Google OAuth
     digest: c870a9a83605a7456e17dae02c3188d9932112be86534ec6239037b0d740d3ba
@@ -67,4 +89,4 @@ entries:
     urls:
     - https://github.com/kloeckner-i/buzzfeed-sso/releases/download/buzzfeed-sso-0.3.1-testing/buzzfeed-sso-0.3.1-testing.tgz
     version: 0.3.1-testing
-generated: "2021-10-27T11:36:11.661910142Z"
+generated: "2021-11-01T12:18:15.024559884Z"
