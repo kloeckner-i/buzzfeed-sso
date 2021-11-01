@@ -94,7 +94,7 @@ Parameter | Description | Default
 `image.tag` | container image tag | `v2.1.0`
 `image.pullPolicy` | container image pull policy | `IfNotPresent`
 `ingress.enabled` | set to true to enable the ingress | `true`
-`ingress.ingressClassname` | set related ingress class for different controller | OPTIONAL
+`ingress.ingressClassName` | set related ingress class for different controller | OPTIONAL
 `ingress.annotations` | ingress load balancer annotations | `{}`
 `ingress.extraLabels` | extra ingress labels | `{}`
 `ingress.hosts` | proxied hosts | `[]`

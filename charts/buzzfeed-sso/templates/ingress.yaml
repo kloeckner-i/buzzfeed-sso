@@ -2,7 +2,7 @@
 {{- if ne .Values.auth.domain "<your_auth_domain>" -}}
 {{- $fullName := include "buzzfeed-sso.fullname" . -}}
 {{- $authDomain := .Values.auth.domain -}}
-apiVersion: {{ template "ingress.apiVersion" . }}
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
@@ -34,8 +34,8 @@ spec:
       secretName: {{ .secretName }}
   {{- end }}
 {{- end }}
-{{- if .Values.ingress.ingressClassname }}
-  ingressClassname: {{ .Values.ingress.ingressClassname }}
+{{- if .Values.ingress.ingressClassName }}
+  ingressClassName: {{ .Values.ingress.ingressClassName }}
 {{- end }}
   rules:
     # Upstreams that need SSO authentication
@@ -46,21 +46,21 @@ spec:
           {{- $pathType := .pathType -}}
           {{- if .path }}
           - path: {{ .path }}
-            {{- if $pathType }}
-            pathType: {{ $pathType }}
-            {{- end }}
+            pathType: {{ $pathType | default "ImplementationSpecific" }}
             backend:
-              serviceName: {{ $fullName }}-proxy
-              servicePort: http
+              service:
+                name: {{ $fullName }}-proxy
+                port:
+                  name: http
           {{- end }}
           {{- range .paths }}
           - path: {{ . }}
-            {{- if $pathType }}
-            pathType: {{ $pathType }}
-            {{- end }}
+            pathType: {{ $pathType | default "ImplementationSpecific" }}
             backend:
-              serviceName: {{ $fullName }}-proxy
-              servicePort: http
+              service:
+                name: {{ $fullName }}-proxy
+                port:
+                  name: http
           {{- end }}
   {{- end }}
   {{- if and .Values.auth.enabled .Values.auth.ingressEnabled }}
@@ -69,9 +69,12 @@ spec:
       http:
         paths:
           - path: {{ .Values.auth.ingressPath }}
+            pathType: ImplementationSpecific
             backend:
-              serviceName: {{ $fullName }}-auth
-              servicePort: http
+              service:
+                name: {{ $fullName }}-auth
+                port:
+                  name: http
   {{- end }}
 {{- end }}
 {{- end }}
